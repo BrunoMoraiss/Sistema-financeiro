@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Body, Container, Header } from './App.style';
+import TableArea from './components/tableArea';
 import { categories } from './data/categories';
 import { Items } from './data/items';
 import { filterListByMonth, getCurrentMonth } from './helpers/dateFilter';
@@ -9,7 +10,7 @@ import { Item } from './types/Item';
 
 function App() {
   const [list, setList] = useState(Items);
-  const [filteredList, setFilteredList] = useState<Item[]>();
+  const [filteredList, setFilteredList] = useState<Item[]>([]);
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function App() {
       <Body>
         {/*Área de informaçõee*/}
         {/* Área de inserção */}
-        {/* Tabela de itens */}
+        <TableArea list={filteredList} />
       </Body>
     </Container>
   );
