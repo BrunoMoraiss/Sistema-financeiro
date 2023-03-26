@@ -29,3 +29,28 @@ export const formatDate = (date: Date) => {
 
   return `${day}/${month}/${year}`;
 };
+
+export const formatCurrentMonth = (date: string) => {
+  const [year, month] = date.split('-');
+  const ArrayMonths: string[] = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro',
+  ];
+
+  return `${ArrayMonths[+month - 1]} de ${year}`;
+};
+
+export const newDateAdjusted = (dateField: string) => {
+  const [year, month, day] = dateField.split('-');
+  return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+};
